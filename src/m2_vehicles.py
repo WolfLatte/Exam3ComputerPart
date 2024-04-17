@@ -1,22 +1,22 @@
 ###############################################################################
-# TODO: 1. (4 pts)
-#
+# DONE: 1. (4 pts)
+
 #   For this _todo_, create a parent class called Vehicle. It should have an
 #   __init__() function that sets two properties:
 #       - year      <- int
 #       - make      <- int
 #       - model     <- int
-#
+
 #   It should have two methods:
 #       - horn
 #       - vehicle_info
-#
+
 #   This Shape class should assume that the vehicle is a car, so these
 #   functions should behave as follows.
-#
+
 #       horn() -> should print the sound of a car horn
 #               "BEEP BEEP"
-#
+
 #       vehicle_info() -> should print the vehicle's information
 #                       Year: 2012
 #                       Make: Chevrolet
@@ -24,9 +24,28 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Vehicle:
+    def __init__(self, year, make, model):
+        self.year = year
+        self.make = make
+        self.model = model
+
+    def horn(self):
+        print("BEEP BEEP")
+
+    def vehicle_info(self):
+        print(f"Year: {self.year}")
+        print(f"Make: {self.make}")
+        print(f"Model: {self.model}")
+
+
+# Testing
+# my_car = Vehicle(2012, "Chevrolet", "Colorado")
+# my_car.horn() 
+# my_car.vehicle_info() 
 
 ###############################################################################
-# TODO: 2. (2 pts)
+# DONE: 2. (2 pts)
 #
 #   For this _todo_, create a child class called Car that inherits its
 #   class from Vehicle. Since Vehicle already assumes the vehicle is a car, we
@@ -35,53 +54,80 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
-
+class Car(Vehicle):
+    pass
 ###############################################################################
-# TODO: 2. (4 pts)
+# DONE: 2. (4 pts)
 #
 #   For this _todo_, create a child class called Boat that inherits its class
 #   from Vehicle.
-#
+
 #   Now, a boat is a little bit different because we don't really need a
 #   make and model. We will simply give the boat a name and a year. So, it's
 #   __init__() method should only have two parameters:
 #       - year
 #       - name
-#
+
 #   A Boat's methods should work as follows.
-#
+
 #       horn() -> should print the sound of a boat horn
 #               "TOOT TOOT"
-#
+
 #       vehicle_info() -> should print the vehicle's information
 #                       Year: 2010
 #                       Name: Seas the Day
 #   
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Boat(Vehicle):
+    def __init__(self, year, name):
+        self.year = year
+        self.name = name
 
+    def horn(self):
+        print("TOOT TOOT")
+
+    def vehicle_info(self):
+        print(f"Year: {self.year}")
+        print(f"Name: {self.name}")
+
+
+#Testing
+# my_boat = Boat(2010, "Seas the Day")
+# my_boat.horn()  
+# my_boat.vehicle_info()
 ###############################################################################
-# TODO: 3. (4 pts)
+# DONE: 3. (4 pts)
 #
 #   For this _todo_, create a child class called Train that inherits its class
 #   from Vehicle. A Train has only two parameter:
 #       - number    <- a number that identifies a train
 #       - length    <- which is just a number of train cars
-#
+
 #   A Train's methods should work as follows.
-#
+
 #       horn() -> should print the sound of a train horn
 #               "CHOO CHOO"
-#
+
 #       vehicle_info() -> should print the vehicle's information
 #                         Number: 74
 #                         Length: 20
-#
+
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Train(Vehicle):
+    def __init__(self, number, length):
+        self.number = number
+        self.length = length
+        
+    def horn(self):
+        print("CHOO CHOO")
 
+    def vehicle_info(self):
+        print(f"Number: {self.number}")
+        print(f"Length: {self.length}")
 ###############################################################################
-# TODO: 4. (3 pts)
+# DONE: 4. (3 pts)
 #
 #   For this _todo_, create three different objects and save each to a
 #   variable. Create a Car, Boat, and Train.
@@ -92,3 +138,14 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+dream_car = Vehicle(2012, "Chevrolet", "Colorado")
+dream_car.horn() 
+dream_car.vehicle_info() 
+
+dream_boat = Boat(2010, "Seas the Day")
+dream_boat.horn() 
+dream_boat.vehicle_info() 
+
+dream_train = Train(74,20)
+dream_train.horn() 
+dream_train.vehicle_info() 
