@@ -1,10 +1,4 @@
 import tkinter as tk
-
-window = tk.Tk()
-window.title("ATM")
-
-
-window.mainloop()
 ###############################################################################
 # DONE: 1. (2 pts)
 #
@@ -18,7 +12,7 @@ window.mainloop()
 #   Once you have done this, then change the above _TODO_ to DONE.
 
 
-# TODO: 2. (3 pts)
+# DONE: 2. (3 pts)
 
 #   For this _todo_, you will create an area where the user's current balance
 #   is displayed. There should be a label that says "Current Balance ($):" and
@@ -32,7 +26,7 @@ window.mainloop()
 #   Once you have done this, then change the above _TODO_ to DONE.
 
 
-# TODO: 3 (3 pts)
+# DONE: 3 (3 pts)
 
 #   For this _todo_, create two more labels: one that says "Amount ($):" and
 #   another that starts out empty beneath it. This is where the user's amount
@@ -41,7 +35,7 @@ window.mainloop()
 #   Once you have done this, then change the above _TODO_ to DONE.
 
 
-# TODO: 4. (7 pts)
+# DONE: 4. (7 pts)
 
 #   For this _todo_, you will create all the buttons that the user needs:
 
@@ -57,7 +51,7 @@ window.mainloop()
 #   Once you have done this, then change the above _TODO_ to DONE.
 
 
-# TODO: 5. (10 pts)
+# DONE: 5. (10 pts)
 
 #   For this _todo_, using the command keyword on each button to have each
 #   number button type that digit in the amount label above (just like you
@@ -83,7 +77,7 @@ window.mainloop()
 #   Once you have done this, then change the above _TODO_ to DONE.
 
 
-# TODO: 5. (3 pts)
+# DONE: 5. (3 pts)
 
 #   For this _todo_, bind the window to any keypress so that if the user types
 #   a number, it also types that number into the amount label. Remember, you
@@ -91,3 +85,227 @@ window.mainloop()
 
 #   Once you have done this, then change the above _TODO_ to DONE.
 # ##############################################################################
+window=tk.Tk()
+window.title("ATM")
+
+
+#Labels 
+
+l1 = tk.Label(
+    master = window, 
+    text = "Current Balance ($):"
+)
+l1.pack()
+balance = tk.Label(
+    master = window, 
+    text = "1000"
+)
+balance.pack()
+
+
+
+l2 = tk.Label(
+    master = window, 
+    text = "Amount ($):"
+)
+l2.pack()
+new_add = tk.Label(
+    master = window, 
+    text = ""
+)
+new_add.pack()
+
+
+frame1 = tk.Frame(master = window)
+frame1.rowconfigure([0,1,2,3], minsize = 75)
+frame1.columnconfigure([0,1,2], minsize = 75)
+frame1.pack()
+
+
+
+
+
+def b1():
+    new_add["text"] = new_add["text"] + "1"
+
+def b2():
+    new_add["text"] = new_add["text"] + "2"
+
+def b3():
+    new_add["text"] = new_add["text"] + "3"
+
+def b4():
+    new_add["text"] = new_add["text"] + "4"
+
+def b5():
+    new_add["text"] = new_add["text"] + "5"
+
+def b6():
+    new_add["text"] = new_add["text"] + "6"
+
+def b7():
+    new_add["text"] = new_add["text"] + "7"
+
+def b8():
+    new_add["text"] = new_add["text"] + "8"
+
+def b9():
+    new_add["text"] = new_add["text"] + "9"
+
+def b0():
+    new_add["text"] = new_add["text"] + "0"
+
+def w():
+    balance["text"] = int(balance["text"]) - int(new_add["text"])
+    new_add["text"] = ""
+
+def d():
+    balance["text"] = int(balance["text"]) + int(new_add["text"])
+    new_add["text"] = ""
+
+button1 = tk.Button(
+    master = frame1, 
+    text = "1", 
+    command = b1
+)
+button1.grid(
+    row = 0, 
+    column = 0, 
+    sticky = 
+    "nsew"
+)
+
+button2 = tk.Button(
+    master = frame1, 
+    text = "2", 
+    command = b2
+)
+button2.grid(
+    row = 0, 
+    column = 1, 
+    sticky = "nsew"
+)
+
+button3 = tk.Button(
+    master = frame1, 
+    text = "3", 
+    command = b3
+)
+
+button3.grid(
+    row = 0, 
+    column = 2, 
+    sticky = "nsew"
+)
+
+button4 = tk.Button(
+    master = frame1, 
+    text = "4", 
+    command = b4
+)
+button4.grid(
+    row = 1, 
+    column = 0, 
+    sticky = "nsew"
+)
+
+button5 = tk.Button(
+    master = frame1, 
+    text = "5", 
+    command = b5
+)
+button5.grid(
+    row = 1, 
+    column = 1, 
+    sticky = "nsew"
+)
+
+button6 = tk.Button(
+    master = frame1, 
+    text = "6", 
+    command = b6
+)
+button6.grid(
+    row = 1, 
+    column = 2, 
+    sticky = "nsew"
+)
+
+button7 = tk.Button(
+    master = frame1, 
+    text = "7", 
+    command = b7
+)
+button7.grid(
+    row = 2, 
+    column = 0, 
+    sticky = "nsew"
+)
+
+button8 = tk.Button(
+    master = frame1, 
+    text = "8", 
+    command = b8
+)
+button8.grid(
+    row = 2, 
+    column = 1, 
+    sticky = "nsew"
+)
+
+button9 = tk.Button(
+    master = frame1, 
+    text = "9", 
+    command = b9
+)
+button9.grid(
+    row = 2, 
+    column = 2, 
+    sticky = "nsew"
+)
+
+button_withdrawal = tk.Button(
+    master = frame1, 
+    text = "Withdrawal", 
+    command = w
+)
+button_withdrawal.grid(
+    row = 3, 
+    column = 0, 
+    sticky = "nsew"
+)
+
+button0 = tk.Button(
+    master = frame1, 
+    text = "0", 
+    command = b0
+)
+button0.grid(
+    row = 3, 
+    column = 1, 
+    sticky = "nsew"
+)
+
+button_deposit = tk.Button(
+    master = frame1, 
+    text = "Deposit", 
+    command = d
+)
+button_deposit.grid(
+    row = 3, 
+    column = 2, 
+    sticky = "nsew"
+)
+
+
+
+
+
+
+
+def keypress(event):
+    if event.char.isdigit():
+        new_add["text"] = new_add["text"] + event.char
+window.bind("<Key>", keypress)
+
+window.mainloop()
